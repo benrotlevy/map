@@ -6,7 +6,7 @@ const cors = require("cors");
 const data = [];
 let relevantData = [];
 
-fs.createReadStream("./listing_data_houston.csv") // copy relative path to csv file you want to read
+fs.createReadStream("./listing_data_arlington.csv") // copy relative path to csv file that you want to read
     .pipe(csv.parse({ headers: true }))
     .on("error", (error) => console.error(error))
     .on("data", (row) => data.push(row))
@@ -33,6 +33,7 @@ app.get("/", (req, res) => {
         console.log(relevantData.length);
         res.send(relevantData);
     } catch (error) {
+        console.log(error);
         res.status(500).send(error);
     }
 });

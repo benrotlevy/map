@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { GoogleMap, LoadScript, Marker } from "@react-google-maps/api";
 import axios from "axios";
+import icon from "../dot.png";
 
 const containerStyle = {
     width: "95vw",
@@ -46,7 +47,7 @@ function Map() {
                         Number(property.lng) +
                         Math.random()
                     }
-                    // icon={{ scale: 1 }}
+                    icon={{ url: icon }}
                     onLoad={onLoad}
                     position={{
                         lat: Number(property.lat),
